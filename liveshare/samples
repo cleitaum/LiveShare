@@ -1,0 +1,92 @@
+
+
+/*
+-(void)test{
+    
+    
+    
+    AVURLAsset* asset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:@""] options:nil];
+   AVAssetExportSession  *session = [[AVAssetExportSession alloc] initWithAsset:asset
+                                               presetName:AVAssetExportPresetLowQuality];
+    session.outputURL = [NSURL fileURLWithPath:@""];
+    session.outputFileType = AVFileTypeQuickTimeMovie | AVFi;
+    session.shouldOptimizeForNetworkUse = YES;
+    [session exportAsynchronouslyWithCompletionHandler:^{
+        [self performSelectorOnMainThread:@selector(conversionFinished)
+                               withObject:nil
+                            waitUntilDone:NO]; }];
+}*/
+
+
+
+    
+ 
+    
+    
+    // Create the videoFile.m4v AVAssetWriter.
+ /*   AVAssetWriter *videoFileWriter = [[AVAssetWriter alloc] initWithURL:destinationURL fileType:AVFileTypeQuickTimeMovie error:&error];
+    NSParameterAssert(videoFileWriter);
+    if (error) {
+        NSLog(@"AVAssetWriter initWithURL failed with error= %@", [error localizedDescription]);
+    }
+    
+    // Create the video file settings dictionary.
+    NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys: AVVideoCodecH264, AVVideoCodecKey, [NSNumber numberWithInt:1280],
+                                   AVVideoWidthKey, [NSNumber numberWithInt:720], AVVideoHeightKey, nil];
+    
+    // Perform video settings check.
+    if ([videoFileWriter canApplyOutputSettings:videoSettings forMediaType:AVMediaTypeVideo]) {
+        NSLog(@"videoFileWriter can apply videoSettings...");    
+    }
+    
+    // Create the input to the videoFileWriter AVAssetWriter.
+    AVAssetWriterInput *videoFileWriterInput = [[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo outputSettings:videoSettings];
+    videoFileWriterInput.expectsMediaDataInRealTime = YES;
+    NSParameterAssert(videoFileWriterInput);
+    NSParameterAssert([videoFileWriter canAddInput:videoFileWriterInput]);
+    
+    // Connect the videoFileWriterInput to the videoFileWriter.
+    if ([videoFileWriter canAddInput:videoFileWriterInput]) {
+        [videoFileWriter addInput:videoFileWriterInput]; 
+    }
+    
+    // Get the contents of videoFile.264 (using current Mac OSX methods).
+    NSData *sourceData = [NSData dataWithContentsOfURL:sourceURL];
+    const char *videoFileData = [sourceData bytes];
+    size_t sourceDataLength = [sourceData length];
+    NSLog(@"The value of 'sourceDataLength' is: %ld", sourceDataLength);
+    
+    // Set up to create the videoSampleBuffer.
+    int32_t videoWidth = 1280;
+    int32_t videoHeight = 720;
+    CMBlockBufferRef videoBlockBuffer = NULL;
+    CMFormatDescriptionRef videoFormat = NULL;
+    CMSampleBufferRef videoSampleBuffer = NULL;
+    CMItemCount numberOfSampleTimeEntries = 1;
+    CMItemCount numberOfSamples = 1;
+    
+    // More set up to create the videoSampleBuffer.
+    CMVideoFormatDescriptionCreate(kCFAllocatorDefault, kCMVideoCodecType_H264, videoWidth, videoHeight, NULL, &videoFormat);
+    result = CMBlockBufferCreateWithMemoryBlock(kCFAllocatorDefault, NULL, 150000, kCFAllocatorDefault, NULL, 0, 150000, kCMBlockBufferAssureMemoryNowFlag,
+                                                &videoBlockBuffer);
+    NSLog(@"After 'CMBlockBufferCreateWithMemoryBlock', 'result' is: %d", result);
+    
+    // The CMBlockBufferReplaceDataBytes method is supposed to write videoFile.264 data bytes into the videoSampleBuffer.
+    result = CMBlockBufferReplaceDataBytes(videoFileData, videoBlockBuffer, 0, 150000);
+    NSLog(@"After 'CMBlockBufferReplaceDataBytes', 'result' is: %d", result);
+    
+    CMSampleTimingInfo videoSampleTimingInformation = {CMTimeMake(1, 30)};
+    result = CMSampleBufferCreate(kCFAllocatorDefault, videoBlockBuffer, TRUE, NULL, NULL, videoFormat, numberOfSamples, numberOfSampleTimeEntries,
+                                  &videoSampleTimingInformation, 0, NULL, &videoSampleBuffer);
+    NSLog(@"After 'CMSampleBufferCreate', 'result' is: %d", result);
+    
+    // Set the videoSampleBuffer to ready (is this needed?).
+    result = CMSampleBufferMakeDataReady(videoSampleBuffer);
+    NSLog(@"After 'CMSampleBufferMakeDataReady', 'result' is: %d", result);
+    
+    // Start writing...
+    if ([videoFileWriter startWriting]) {
+        [videoFileWriter startSessionAtSourceTime:kCMTimeZero];
+    }
+
+    */
