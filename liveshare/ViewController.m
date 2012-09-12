@@ -108,7 +108,11 @@
         
         if ([filename hasSuffix:@".mp4"]) {   //change the suffix to what you are looking for
             // Do work here
+            NSError *attributesError = nil;
+            NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.h264Compressor.videoFileURL.path error:&attributesError];
+            
             NSLog(@"founded %@", filename);
+             NSLog(@"fileAttributes %@", fileAttributes);
         }
     }
 }
