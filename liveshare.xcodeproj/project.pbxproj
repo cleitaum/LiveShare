@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23B6248515FF7F6E00D1254C /* samples in Resources */ = {isa = PBXBuildFile; fileRef = 23B6248415FF7F6E00D1254C /* samples */; };
-		23B6249715FF829B00D1254C /* H264VideoCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B6249615FF829B00D1254C /* H264VideoCompressor.m */; };
 		23B6249B15FFA9FA00D1254C /* PlayerViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B6249915FFA9F900D1254C /* PlayerViewControllerViewController.m */; };
 		23B6249C15FFA9FA00D1254C /* PlayerViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B6249A15FFA9F900D1254C /* PlayerViewControllerViewController.xib */; };
 		23B6249E15FFAC6300D1254C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B6249D15FFAC6300D1254C /* MediaPlayer.framework */; };
@@ -25,12 +23,10 @@
 		618705F015FEBBE9004CAA56 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618705EF15FEBBE9004CAA56 /* CoreVideo.framework */; };
 		618705F215FEBC01004CAA56 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618705F115FEBC01004CAA56 /* CoreMedia.framework */; };
 		618705F815FEC1DD004CAA56 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618705F715FEC1DD004CAA56 /* QuartzCore.framework */; };
+		61F6501E1604129400B5F367 /* H264VideoCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F6501D1604129400B5F367 /* H264VideoCompressor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23B6248415FF7F6E00D1254C /* samples */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = samples; sourceTree = "<group>"; };
-		23B6249515FF829B00D1254C /* H264VideoCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = H264VideoCompressor.h; path = ../H264VideoCompressor.h; sourceTree = "<group>"; };
-		23B6249615FF829B00D1254C /* H264VideoCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = H264VideoCompressor.m; path = ../H264VideoCompressor.m; sourceTree = "<group>"; };
 		23B6249815FFA9F900D1254C /* PlayerViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewControllerViewController.h; sourceTree = "<group>"; };
 		23B6249915FFA9F900D1254C /* PlayerViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewControllerViewController.m; sourceTree = "<group>"; };
 		23B6249A15FFA9F900D1254C /* PlayerViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewControllerViewController.xib; sourceTree = "<group>"; };
@@ -53,6 +49,8 @@
 		618705EF15FEBBE9004CAA56 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		618705F115FEBC01004CAA56 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		618705F715FEC1DD004CAA56 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		61F6501C1604129400B5F367 /* H264VideoCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264VideoCompressor.h; sourceTree = "<group>"; };
+		61F6501D1604129400B5F367 /* H264VideoCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264VideoCompressor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,19 +107,9 @@
 		612C7C9C15FEAD220001F073 /* liveshare */ = {
 			isa = PBXGroup;
 			children = (
-				612C7CA515FEAD220001F073 /* AppDelegate.h */,
-				612C7CA615FEAD220001F073 /* AppDelegate.m */,
-				612C7CA815FEAD220001F073 /* ViewController.h */,
-				612C7CA915FEAD220001F073 /* ViewController.m */,
-				612C7CAB15FEAD220001F073 /* ViewController_iPhone.xib */,
-				612C7CAE15FEAD220001F073 /* ViewController_iPad.xib */,
-				23B6249515FF829B00D1254C /* H264VideoCompressor.h */,
-				23B6249615FF829B00D1254C /* H264VideoCompressor.m */,
+				61F6501A1604125E00B5F367 /* Controllers */,
+				61F6501B1604128000B5F367 /* Library */,
 				612C7C9D15FEAD220001F073 /* Supporting Files */,
-				23B6248415FF7F6E00D1254C /* samples */,
-				23B6249815FFA9F900D1254C /* PlayerViewControllerViewController.h */,
-				23B6249915FFA9F900D1254C /* PlayerViewControllerViewController.m */,
-				23B6249A15FFA9F900D1254C /* PlayerViewControllerViewController.xib */,
 			);
 			path = liveshare;
 			sourceTree = "<group>";
@@ -135,6 +123,31 @@
 				612C7CA415FEAD220001F073 /* liveshare-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61F6501A1604125E00B5F367 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				612C7CA515FEAD220001F073 /* AppDelegate.h */,
+				612C7CA615FEAD220001F073 /* AppDelegate.m */,
+				612C7CA815FEAD220001F073 /* ViewController.h */,
+				612C7CA915FEAD220001F073 /* ViewController.m */,
+				612C7CAB15FEAD220001F073 /* ViewController_iPhone.xib */,
+				612C7CAE15FEAD220001F073 /* ViewController_iPad.xib */,
+				23B6249815FFA9F900D1254C /* PlayerViewControllerViewController.h */,
+				23B6249915FFA9F900D1254C /* PlayerViewControllerViewController.m */,
+				23B6249A15FFA9F900D1254C /* PlayerViewControllerViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		61F6501B1604128000B5F367 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				61F6501C1604129400B5F367 /* H264VideoCompressor.h */,
+				61F6501D1604129400B5F367 /* H264VideoCompressor.m */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +203,6 @@
 				612C7CA115FEAD220001F073 /* InfoPlist.strings in Resources */,
 				612C7CAD15FEAD220001F073 /* ViewController_iPhone.xib in Resources */,
 				612C7CB015FEAD220001F073 /* ViewController_iPad.xib in Resources */,
-				23B6248515FF7F6E00D1254C /* samples in Resources */,
 				23B6249C15FFA9FA00D1254C /* PlayerViewControllerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,8 +217,8 @@
 				612C7CA315FEAD220001F073 /* main.m in Sources */,
 				612C7CA715FEAD220001F073 /* AppDelegate.m in Sources */,
 				612C7CAA15FEAD220001F073 /* ViewController.m in Sources */,
-				23B6249715FF829B00D1254C /* H264VideoCompressor.m in Sources */,
 				23B6249B15FFA9FA00D1254C /* PlayerViewControllerViewController.m in Sources */,
+				61F6501E1604129400B5F367 /* H264VideoCompressor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
