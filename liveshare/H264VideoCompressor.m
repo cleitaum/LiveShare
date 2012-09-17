@@ -47,14 +47,14 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     
 	NSUInteger numericSuffix = 2;
 	
-    NSURL *potentialURL  = [NSURL fileURLWithPath:[parent stringByAppendingFormat:fileName]];
+    NSURL *potentialURL  = [NSURL fileURLWithPath:[parent stringByAppendingFormat:fileName, nil]];
     
     BOOL fileURLAvailable = ![potentialURL checkResourceIsReachableAndReturnError:nil];
     
     while ((!fileURLAvailable)) {
         
         NSString *newName = [NSString stringWithFormat:@"%@ %d.%@", [fileName stringByDeletingPathExtension], numericSuffix, [fileName pathExtension]];
-        potentialURL =  [NSURL fileURLWithPath:[parent stringByAppendingFormat:newName]];
+        potentialURL =  [NSURL fileURLWithPath:[parent stringByAppendingFormat:newName, nil]];
         fileURLAvailable = ![potentialURL checkResourceIsReachableAndReturnError:nil];
         numericSuffix++;
     }    
@@ -108,7 +108,8 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     
     // Add video input
     NSDictionary *videoCompressionProps = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [NSNumber numberWithDouble:900.0*1024.0], AVVideoAverageBitRateKey,
+                                           [NSNumber numberWithDouble:900.0*1024.0],
+                                           AVVideoAverageBitRateKey,
                                            nil ];
     
     NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:

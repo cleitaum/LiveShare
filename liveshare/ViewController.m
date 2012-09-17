@@ -19,9 +19,8 @@
 @synthesize showFilesButton;
 @synthesize deleteButton;
 @synthesize _isRecording;
-
-
 @synthesize h264Compressor;
+@synthesize socket;
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -46,6 +45,9 @@
         }
     }  
     [self setupCapture];
+    
+     self.socket = [[SocketStream alloc] init];
+
 }
 
 -(void)setupCapture{
@@ -66,6 +68,7 @@
     [self.view bringSubviewToFront:showFilesButton];
     [self.view bringSubviewToFront:captureButton];
     [self.view bringSubviewToFront:playButton];
+    [self.view bringSubviewToFront:deleteButton];
     
     if (!_isRecording){
         
@@ -119,7 +122,7 @@
 
 - (IBAction)deleteFiles:(id)sender {
     
-    NSFileManager *fm = [NSFileManager defaultManager];
+   /* NSFileManager *fm = [NSFileManager defaultManager];
     NSString *directory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSError *error = nil;
     for (NSString *file in [fm contentsOfDirectoryAtPath:directory error:&error]) {
@@ -128,8 +131,11 @@
             // it failed.
             NSLog(@"it failed %@", [NSString stringWithFormat:@"%@/%@", directory, file]);
         }
-    }
-}
+    }*/
+    
+    [self.socket addStream:@"mano o barato eh loco!\n"];
+}    
+ 
 
 - (void)viewDidUnload
 {
@@ -149,6 +155,5 @@
         return YES;
     }
 }
-
 
 @end

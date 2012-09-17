@@ -24,6 +24,7 @@
 		618705F215FEBC01004CAA56 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618705F115FEBC01004CAA56 /* CoreMedia.framework */; };
 		618705F815FEC1DD004CAA56 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618705F715FEC1DD004CAA56 /* QuartzCore.framework */; };
 		61F6501E1604129400B5F367 /* H264VideoCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F6501D1604129400B5F367 /* H264VideoCompressor.m */; };
+		61F650211604348600B5F367 /* SocketStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F650201604348600B5F367 /* SocketStream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		618705F715FEC1DD004CAA56 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		61F6501C1604129400B5F367 /* H264VideoCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264VideoCompressor.h; sourceTree = "<group>"; };
 		61F6501D1604129400B5F367 /* H264VideoCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264VideoCompressor.m; sourceTree = "<group>"; };
+		61F6501F1604348600B5F367 /* SocketStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketStream.h; sourceTree = "<group>"; };
+		61F650201604348600B5F367 /* SocketStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketStream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				61F6501A1604125E00B5F367 /* Controllers */,
-				61F6501B1604128000B5F367 /* Library */,
+				61F6501B1604128000B5F367 /* Helpers */,
 				612C7C9D15FEAD220001F073 /* Supporting Files */,
 			);
 			path = liveshare;
@@ -141,13 +144,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		61F6501B1604128000B5F367 /* Library */ = {
+		61F6501B1604128000B5F367 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				61F6501C1604129400B5F367 /* H264VideoCompressor.h */,
 				61F6501D1604129400B5F367 /* H264VideoCompressor.m */,
+				61F6501F1604348600B5F367 /* SocketStream.h */,
+				61F650201604348600B5F367 /* SocketStream.m */,
 			);
-			name = Library;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +224,7 @@
 				612C7CAA15FEAD220001F073 /* ViewController.m in Sources */,
 				23B6249B15FFA9FA00D1254C /* PlayerViewControllerViewController.m in Sources */,
 				61F6501E1604129400B5F367 /* H264VideoCompressor.m in Sources */,
+				61F650211604348600B5F367 /* SocketStream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +312,7 @@
 				GCC_PREFIX_HEADER = "liveshare/liveshare-Prefix.pch";
 				INFOPLIST_FILE = "liveshare/liveshare-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -317,6 +324,7 @@
 				GCC_PREFIX_HEADER = "liveshare/liveshare-Prefix.pch";
 				INFOPLIST_FILE = "liveshare/liveshare-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

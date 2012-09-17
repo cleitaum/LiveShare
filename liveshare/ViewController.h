@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "H264VideoCompressor.h"
 #import "PlayerViewControllerViewController.h"
+#import "SocketStream.h"
 
 @interface ViewController : UIViewController
 
@@ -24,7 +25,7 @@
 @property (nonatomic, assign)  bool _isRecording;
 
 @property (nonatomic, strong)  H264VideoCompressor *h264Compressor;
-
+@property (nonatomic, strong)  SocketStream *socket;
 
 - (IBAction)startCapture:(id)sender;
 - (IBAction)playCapturedVideo:(id)sender;

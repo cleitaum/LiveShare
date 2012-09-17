@@ -51,7 +51,7 @@
    
     filename = [filesArray objectAtIndex:filesArray.count -1];
     
-    bundleRoot = [bundleRoot stringByAppendingFormat:[NSString stringWithFormat:@"/%@",filename]];
+    bundleRoot = [bundleRoot stringByAppendingFormat:[NSString stringWithFormat:@"/%@",filename],nil];
     
     NSURL *url = [NSURL fileURLWithPath:bundleRoot];
     
