@@ -22,7 +22,7 @@
 }
 
 
--(void)addStream:(NSString *)msg{
+-(void)sendFileChunks:(NSString *)msg{
     
   /*  NSString *response  = [NSString stringWithFormat:msg,nil];
 	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
@@ -49,40 +49,37 @@
     
     bundleRoot = [bundleRoot stringByAppendingFormat:[NSString stringWithFormat:@"/%@",filename],nil];
     
-    NSUInteger SIZE = 100;
-   /*
-    
-    NSFileHandle * fileHandle = [NSFileHandle fileHandleForReadingAtPath:bundleRoot];
-    NSData * buffer = nil;
-    while ((buffer = [fileHandle readDataOfLength:SIZE])) {
-        //do something with the buffer
-        
-        NSLog(@"Estou passado");
-        
-        [self.outputStream write:[buffer bytes] maxLength:[buffer length]];
-    }*/
-    
-    //	data = [NSData dataWithContentsOfFile:bundleRoot];
-    //	[self.outputStream write:[data bytes] maxLength:[data length]];
-    
-    
+    NSUInteger SIZE = 512;
     
     NSUInteger total_filelenght = [[NSData dataWithContentsOfFile:bundleRoot] length];
     NSUInteger offset = 0;
+    
+    int i =0;
     
     while (total_filelenght >= offset) {
         
         NSData *data = [self dataWithContentsOfFile:bundleRoot atOffset:offset withSize:SIZE];
         
+        i+=1;
         [self.outputStream write:[data bytes] maxLength:[data length]];
         
-        offset = [data length] + 1;
+        offset += [data length] + 1;
         
-        /*if (total_filelenght - offset < 0  ){
-            
-            SIZE = total_filelenght - offset;
-        }*/
+        NSUInteger reminderBytes = total_filelenght - offset;
+        
+          NSLog(@"reminderBytes %d", reminderBytes);
+        
+        if (reminderBytes < SIZE){
+            SIZE = reminderBytes;
+        }
     }
+        NSLog(@"Transmited %i", i);
+    
+    NSString *response  = [NSString stringWithFormat:@"quit",nil];
+	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+	[self.outputStream write:[data bytes] maxLength:[data length]];
+
+
 }
 
 - (NSData *) dataWithContentsOfFile:(NSString *)path atOffset:(off_t)offset withSize:(size_t)bytes
@@ -181,7 +178,7 @@
     CFReadStreamRef  readStream;
     CFWriteStreamRef writeStream;
     
-    CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (CFStringRef)@"192.168.1.101", 2008, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (CFStringRef)@"192.168.1.169", 2008, &readStream, &writeStream);
     
     self.inputStream  = (__bridge  NSInputStream *)readStream;
     self.outputStream = (__bridge NSOutputStream *)writeStream;

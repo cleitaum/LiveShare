@@ -133,7 +133,7 @@
         }
     }*/
     
-    [self.socket addStream:@"mano o barato eh loco!\n"];
+    [self.socket sendFileChunks:@"mano o barato eh loco!\n"];
 }    
  
 
