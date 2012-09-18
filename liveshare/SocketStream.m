@@ -24,10 +24,10 @@
 
 -(void)addStream:(NSString *)msg{
     
-    NSString *response  = [NSString stringWithFormat:msg,nil];
+  /*  NSString *response  = [NSString stringWithFormat:msg,nil];
 	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
 	[self.outputStream write:[data bytes] maxLength:[data length]];
-    
+*/
   //pega o arquivo
     NSMutableArray *filesArray = [[NSMutableArray alloc] init];
     
@@ -49,11 +49,58 @@
     
     bundleRoot = [bundleRoot stringByAppendingFormat:[NSString stringWithFormat:@"/%@",filename],nil];
     
-    NSLog(@"bundleRoot %@", bundleRoot);
+    NSUInteger SIZE = 100;
+   /*
     
-	data = [NSData dataWithContentsOfFile:bundleRoot];
-	[self.outputStream write:[data bytes] maxLength:[data length]];
+    NSFileHandle * fileHandle = [NSFileHandle fileHandleForReadingAtPath:bundleRoot];
+    NSData * buffer = nil;
+    while ((buffer = [fileHandle readDataOfLength:SIZE])) {
+        //do something with the buffer
+        
+        NSLog(@"Estou passado");
+        
+        [self.outputStream write:[buffer bytes] maxLength:[buffer length]];
+    }*/
+    
+    //	data = [NSData dataWithContentsOfFile:bundleRoot];
+    //	[self.outputStream write:[data bytes] maxLength:[data length]];
+    
+    
+    
+    NSUInteger total_filelenght = [[NSData dataWithContentsOfFile:bundleRoot] length];
+    NSUInteger offset = 0;
+    
+    while (total_filelenght >= offset) {
+        
+        NSData *data = [self dataWithContentsOfFile:bundleRoot atOffset:offset withSize:SIZE];
+        
+        [self.outputStream write:[data bytes] maxLength:[data length]];
+        
+        offset = [data length] + 1;
+        
+        /*if (total_filelenght - offset < 0  ){
+            
+            SIZE = total_filelenght - offset;
+        }*/
+    }
 }
+
+- (NSData *) dataWithContentsOfFile:(NSString *)path atOffset:(off_t)offset withSize:(size_t)bytes
+{
+    FILE *file = fopen([path UTF8String], "rb");
+    if(file == NULL)
+        return nil;
+    
+    void *data = malloc(bytes);  // check for NULL!
+    fseeko(file, offset, SEEK_SET);
+    fread(data, 1, bytes, file);  // check return value, in case read was short!
+    fclose(file);
+    
+    // NSData takes ownership and will call free(data) when it's released
+    return [NSData dataWithBytesNoCopy:data length:bytes];
+}
+
+
 
 /*
  NSString *method = [NSString stringWithString:@"uploadStream"];
