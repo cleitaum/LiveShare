@@ -47,7 +47,6 @@
     [self setupCapture];
     
      self.socket = [[SocketStream alloc] init];
-
 }
 
 -(void)setupCapture{
@@ -76,7 +75,7 @@
         captureButton.backgroundColor = [UIColor redColor];
         NSString *contentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         
-        [self.h264Compressor prepareForVideosWithDestinationFolderURL:contentsPath videoName:@"/test"];
+        [self.h264Compressor prepareForVideosWithDestinationFolderURL:contentsPath videoName:@"/sample"];
         
         [self.h264Compressor startVideoRecording];
         _isRecording = YES;
@@ -122,7 +121,7 @@
 
 - (IBAction)deleteFiles:(id)sender {
     
-   /* NSFileManager *fm = [NSFileManager defaultManager];
+    NSFileManager *fm = [NSFileManager defaultManager];
     NSString *directory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSError *error = nil;
     for (NSString *file in [fm contentsOfDirectoryAtPath:directory error:&error]) {
@@ -131,10 +130,8 @@
             // it failed.
             NSLog(@"it failed %@", [NSString stringWithFormat:@"%@/%@", directory, file]);
         }
-    }*/
-    
-    [self.socket addStream:@"mano o barato eh loco!\n"];
-}    
+    }
+} 
  
 
 - (void)viewDidUnload

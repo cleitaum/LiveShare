@@ -195,7 +195,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
 }
 
 
--(void) addNewVideoSample:(CMSampleBufferRef)sampleBuffer
+-(void)addNewVideoSample:(CMSampleBufferRef)sampleBuffer
 {     
     if( self.isRecording )
     {
@@ -212,7 +212,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     }
 }
 
--(void) addNewAudioSample:(CMSampleBufferRef)sampleBuffer
+-(void)addNewAudioSample:(CMSampleBufferRef)sampleBuffer
 {     
     if( self.isRecording )
     {
@@ -229,7 +229,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
 }
 
 
--(void) startVideoRecording
+-(void)startVideoRecording
 {
     if( !self.isRecording )
     {
@@ -243,7 +243,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     }
 }
 
--(void) stopVideoRecording
+-(void)stopVideoRecording
 {
     if( self.isRecording )
     {

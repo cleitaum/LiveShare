@@ -33,27 +33,12 @@
     
     [self.view setTransform:CGAffineTransformMakeRotation( ( 90 * M_PI ) / 180 )];
     
-    NSMutableArray *filesArray = [[NSMutableArray alloc] init];
+    NSString *contentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString *bundleRoot = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:bundleRoot];
     
-    NSString *filename;
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/sample.mp4",contentsPath]];
     
-    while ((filename = [direnum nextObject] )) {
-        
-        if ([filename hasSuffix:@".mp4"]) {   //change the suffix to what you are looking for
-            // Do work here
-            [filesArray addObject:filename];
-        }
-    }
-   
-    filename = [filesArray objectAtIndex:filesArray.count -1];
-    
-    bundleRoot = [bundleRoot stringByAppendingFormat:[NSString stringWithFormat:@"/%@",filename],nil];
-    
-    NSURL *url = [NSURL fileURLWithPath:bundleRoot];
+    NSLog(@"path %@", url.path);
     
     moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     [moviePlayer setFullscreen:YES animated:NO];
