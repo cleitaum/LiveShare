@@ -10,6 +10,9 @@
 		23B6249B15FFA9FA00D1254C /* PlayerViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B6249915FFA9F900D1254C /* PlayerViewControllerViewController.m */; };
 		23B6249C15FFA9FA00D1254C /* PlayerViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B6249A15FFA9F900D1254C /* PlayerViewControllerViewController.xib */; };
 		23B6249E15FFAC6300D1254C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B6249D15FFAC6300D1254C /* MediaPlayer.framework */; };
+		610BE50F1618C62E007FD6BA /* RMTPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 610BE50E1618C62E007FD6BA /* RMTPHelper.m */; };
+		610BE51C1618D15A007FD6BA /* libRTMPClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 610BE51B1618D15A007FD6BA /* libRTMPClient.a */; };
+		610BE5271618DF54007FD6BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610BE5261618DF54007FD6BA /* Security.framework */; };
 		612C7C9715FEAD220001F073 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C7C9615FEAD220001F073 /* UIKit.framework */; };
 		612C7C9915FEAD220001F073 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C7C9815FEAD220001F073 /* Foundation.framework */; };
 		612C7C9B15FEAD220001F073 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C7C9A15FEAD220001F073 /* CoreGraphics.framework */; };
@@ -32,6 +35,19 @@
 		23B6249915FFA9F900D1254C /* PlayerViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewControllerViewController.m; sourceTree = "<group>"; };
 		23B6249A15FFA9F900D1254C /* PlayerViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewControllerViewController.xib; sourceTree = "<group>"; };
 		23B6249D15FFAC6300D1254C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		610BE50D1618C62E007FD6BA /* RMTPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTPHelper.h; sourceTree = "<group>"; };
+		610BE50E1618C62E007FD6BA /* RMTPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTPHelper.m; sourceTree = "<group>"; };
+		610BE51B1618D15A007FD6BA /* libRTMPClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRTMPClient.a; path = libraryRTMP/libRTMPClient.a; sourceTree = "<group>"; };
+		610BE51D1618D166007FD6BA /* IAttributeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAttributeStore.h; path = libraryRTMP/include/IAttributeStore.h; sourceTree = "<group>"; };
+		610BE51E1618D166007FD6BA /* IClientSharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IClientSharedObject.h; path = libraryRTMP/include/IClientSharedObject.h; sourceTree = "<group>"; };
+		610BE51F1618D166007FD6BA /* IClientSharedObjectDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IClientSharedObjectDelegate.h; path = libraryRTMP/include/IClientSharedObjectDelegate.h; sourceTree = "<group>"; };
+		610BE5201618D166007FD6BA /* IPendingServiceCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPendingServiceCallback.h; path = libraryRTMP/include/IPendingServiceCallback.h; sourceTree = "<group>"; };
+		610BE5211618D166007FD6BA /* IPersistable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPersistable.h; path = libraryRTMP/include/IPersistable.h; sourceTree = "<group>"; };
+		610BE5221618D166007FD6BA /* IRTMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRTMProtocol.h; path = libraryRTMP/include/IRTMProtocol.h; sourceTree = "<group>"; };
+		610BE5231618D166007FD6BA /* IServiceCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IServiceCall.h; path = libraryRTMP/include/IServiceCall.h; sourceTree = "<group>"; };
+		610BE5241618D166007FD6BA /* ISharedObjectListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISharedObjectListener.h; path = libraryRTMP/include/ISharedObjectListener.h; sourceTree = "<group>"; };
+		610BE5251618D166007FD6BA /* RTMPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTMPClient.h; path = libraryRTMP/include/RTMPClient.h; sourceTree = "<group>"; };
+		610BE5261618DF54007FD6BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		612C7C9215FEAD220001F073 /* liveshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liveshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		612C7C9615FEAD220001F073 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		612C7C9815FEAD220001F073 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610BE5271618DF54007FD6BA /* Security.framework in Frameworks */,
 				23B6249E15FFAC6300D1254C /* MediaPlayer.framework in Frameworks */,
 				618705F815FEC1DD004CAA56 /* QuartzCore.framework in Frameworks */,
 				618705F215FEBC01004CAA56 /* CoreMedia.framework in Frameworks */,
@@ -69,12 +86,38 @@
 				612C7C9715FEAD220001F073 /* UIKit.framework in Frameworks */,
 				612C7C9915FEAD220001F073 /* Foundation.framework in Frameworks */,
 				612C7C9B15FEAD220001F073 /* CoreGraphics.framework in Frameworks */,
+				610BE51C1618D15A007FD6BA /* libRTMPClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		610BE5191618D119007FD6BA /* libRTMPClient */ = {
+			isa = PBXGroup;
+			children = (
+				610BE51B1618D15A007FD6BA /* libRTMPClient.a */,
+				610BE51A1618D13B007FD6BA /* include */,
+			);
+			name = libRTMPClient;
+			sourceTree = "<group>";
+		};
+		610BE51A1618D13B007FD6BA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				610BE51D1618D166007FD6BA /* IAttributeStore.h */,
+				610BE51E1618D166007FD6BA /* IClientSharedObject.h */,
+				610BE51F1618D166007FD6BA /* IClientSharedObjectDelegate.h */,
+				610BE5201618D166007FD6BA /* IPendingServiceCallback.h */,
+				610BE5211618D166007FD6BA /* IPersistable.h */,
+				610BE5221618D166007FD6BA /* IRTMProtocol.h */,
+				610BE5231618D166007FD6BA /* IServiceCall.h */,
+				610BE5241618D166007FD6BA /* ISharedObjectListener.h */,
+				610BE5251618D166007FD6BA /* RTMPClient.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
 		612C7C8715FEAD220001F073 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +138,7 @@
 		612C7C9515FEAD220001F073 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				610BE5261618DF54007FD6BA /* Security.framework */,
 				23B6249D15FFAC6300D1254C /* MediaPlayer.framework */,
 				618705F715FEC1DD004CAA56 /* QuartzCore.framework */,
 				618705F115FEBC01004CAA56 /* CoreMedia.framework */,
@@ -112,6 +156,7 @@
 			children = (
 				61F6501A1604125E00B5F367 /* Controllers */,
 				61F6501B1604128000B5F367 /* Helpers */,
+				610BE5191618D119007FD6BA /* libRTMPClient */,
 				612C7C9D15FEAD220001F073 /* Supporting Files */,
 			);
 			path = liveshare;
@@ -151,6 +196,8 @@
 				61F6501D1604129400B5F367 /* H264VideoCompressor.m */,
 				61F6501F1604348600B5F367 /* SocketStream.h */,
 				61F650201604348600B5F367 /* SocketStream.m */,
+				610BE50D1618C62E007FD6BA /* RMTPHelper.h */,
+				610BE50E1618C62E007FD6BA /* RMTPHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -225,6 +272,7 @@
 				23B6249B15FFA9FA00D1254C /* PlayerViewControllerViewController.m in Sources */,
 				61F6501E1604129400B5F367 /* H264VideoCompressor.m in Sources */,
 				61F650211604348600B5F367 /* SocketStream.m in Sources */,
+				610BE50F1618C62E007FD6BA /* RMTPHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +359,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "liveshare/liveshare-Prefix.pch";
 				INFOPLIST_FILE = "liveshare/liveshare-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/liveshare/libraryRTMP\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -323,6 +375,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "liveshare/liveshare-Prefix.pch";
 				INFOPLIST_FILE = "liveshare/liveshare-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/liveshare/libraryRTMP\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
