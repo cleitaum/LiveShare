@@ -131,8 +131,7 @@
             NSLog(@"it failed %@", [NSString stringWithFormat:@"%@/%@", directory, file]);
         }
     }
-} 
- 
+}
 
 - (void)viewDidUnload
 {

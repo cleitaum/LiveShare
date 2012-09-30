@@ -15,6 +15,6 @@
 
 
 -(SocketStream *)init;
--(void)addStream:(NSString *)msg;
+-(void)sendFileChunks:(NSString *)msg;
 
 @end
