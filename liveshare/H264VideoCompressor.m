@@ -24,12 +24,15 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
 @synthesize audioWriterInput;
 @synthesize isRecording;
 @synthesize lastSampleTime;
+@synthesize rmtphelper;
 
--(NSString *)name {
+-(NSString *)name
+{
     return NSLocalizedStringFromTableInBundle(@"H264CompressorName", @"Localizable", [NSBundle bundleForClass:[self class]], @"H.264");
 }
 
--(void)prepareForVideosWithDestinationFolderURL:(NSString *)destination videoName:(NSString *)name {
+-(void)prepareForVideosWithDestinationFolderURL:(NSString *)destination videoName:(NSString *)name
+{
     
     if (![[name pathExtension] isEqualToString:@"mp4"]){
         name = [name stringByAppendingPathExtension:@"mp4"];
@@ -37,7 +40,8 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     self.videoFileURL = [self fileURLWithUniqueNameForFile:name inParentDirectory:destination];
 }
 
--(NSURL *)fileURLWithUniqueNameForFile:(NSString *)fileName inParentDirectory:(NSString *)parent {
+-(NSURL *)fileURLWithUniqueNameForFile:(NSString *)fileName inParentDirectory:(NSString *)parent
+{
     
 	// This method passes back a unique file name for the passed file and path(s). 
 	// So, for example, if the caller wants to put a file called "Hello.txt" in ~/Desktop
@@ -61,7 +65,8 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
 	return potentialURL;
 }
 
--(void)initializerVideoAudioDataOutPut{
+-(void)initializerVideoAudioDataOutPut
+{
     
     NSError *error = nil;
     
@@ -98,7 +103,8 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     dispatch_release(queue);
 }
 
--(bool)setupWriter{
+-(bool)setupWriter
+{
     
     NSError *error = nil;
     
@@ -192,6 +198,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
             [self addNewAudioSample:sampleBuffer];
         
     }
+    
 }
 
 
@@ -228,12 +235,16 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     }
 }
 
+//http://www.veemi.com/index.php
 
 -(void)startVideoRecording
 {
     if( !self.isRecording )
     {
         NSLog(@"start video recording...");
+        self.rmtphelper = [[RMTPHelper alloc] init:@"rtmp://live.veemi.com/live?u=comissario&p=D4WOC" withPort:1935 withApplication:@"comissario" withFilePath:self.videoFileURL.path];
+        [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(transmitFile) userInfo:nil repeats: YES];
+        
         if( ![self setupWriter] ){
             NSLog(@"Setup Writer Failed") ;
             return;
@@ -255,6 +266,15 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
             [self.videoWriter finishWriting];
         }
         NSLog(@"video recording stopped");
+    }
+}
+
+
+-(void)transmitFile
+{
+    if (self.rmtphelper.isConnected){
+    
+        [self.rmtphelper transmit];
     }
 }
 

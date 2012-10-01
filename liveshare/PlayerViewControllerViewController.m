@@ -70,6 +70,18 @@
         [player.view removeFromSuperview];
     }
     
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *directory =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSError *error = nil;
+    for (NSString *file in [fm contentsOfDirectoryAtPath:directory error:&error]) {
+        BOOL success = [fm removeItemAtPath:[NSString stringWithFormat:@"%@/%@", directory, file] error:&error];
+        if (!success || error) {
+            // it failed.
+            NSLog(@"it failed %@", [NSString stringWithFormat:@"%@/%@", directory, file]);
+        }
+    }
+
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

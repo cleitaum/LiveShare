@@ -45,8 +45,6 @@
         }
     }  
     [self setupCapture];
-    
-     self.socket = [[SocketStream alloc] init];
 }
 
 -(void)setupCapture{
