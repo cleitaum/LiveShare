@@ -24,7 +24,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
 @synthesize audioWriterInput;
 @synthesize isRecording;
 @synthesize lastSampleTime;
-@synthesize rmtphelper;
+//@synthesize rmtphelper;
 
 -(NSString *)name
 {
@@ -72,6 +72,11 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     
     // Setup the video input make input device
     AVCaptureDevice *cameraDevice = [AVCaptureDevice defaultDeviceWithMediaType: AVMediaTypeVideo];
+  
+    [cameraDevice setValue:[NSNumber numberWithBool: YES] forKey:@"lowLightBoostSupported"];
+    [cameraDevice setValue:[NSNumber numberWithBool: YES] forKey:@"lowLightBoostEnabled"];
+    
+    
     // Create a device input with the device and add it to the session.
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:cameraDevice error:&error];
     
@@ -242,7 +247,7 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
     if( !self.isRecording )
     {
         NSLog(@"start video recording...");
-        self.rmtphelper = [[RMTPHelper alloc] init:@"rtmp://live.veemi.com/live?u=comissario&p=D4WOC" withPort:1935 withApplication:@"comissario" withFilePath:self.videoFileURL.path];
+     //   self.rmtphelper = [[RMTPHelper alloc] init:@"rtmp://live.veemi.com/live?u=comissario&p=D4WOC" withPort:1935 withApplication:@"comissario" withFilePath:self.videoFileURL.path];
         [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(transmitFile) userInfo:nil repeats: YES];
         
         if( ![self setupWriter] ){
@@ -270,13 +275,14 @@ static NSString * const kCompressionBitRateMbitUserDefaultsKey = @"MegaBits";
 }
 
 
+/*
 -(void)transmitFile
 {
     if (self.rmtphelper.isConnected){
     
         [self.rmtphelper transmit];
     }
-}
+}*/
 
 
 @end

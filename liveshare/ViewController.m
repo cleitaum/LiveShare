@@ -73,6 +73,7 @@
         captureButton.backgroundColor = [UIColor redColor];
         NSString *contentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         
+        //TODO salvar na pasta de documentos de video do iphone
         [self.h264Compressor prepareForVideosWithDestinationFolderURL:contentsPath videoName:@"/sample"];
         
         [self.h264Compressor startVideoRecording];

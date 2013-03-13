@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "RMTPHelper.h"
+//#import "RMTPHelper.h"
 
 @interface H264VideoCompressor : NSObject<AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>{
 @private
@@ -31,7 +31,7 @@
 @property (nonatomic, assign)  bool isRecording;
 @property (nonatomic, assign) CMTime lastSampleTime;
 
-@property(nonatomic, retain)  RMTPHelper *rmtphelper;
+//@property(nonatomic, retain)  RMTPHelper *rmtphelper;
 
 -(void)initializerVideoAudioDataOutPut;
 -(void)prepareForVideosWithDestinationFolderURL:(NSString *)destination videoName:(NSString *)name;
